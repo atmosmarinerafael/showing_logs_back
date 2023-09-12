@@ -10,3 +10,7 @@ try {
 } catch (err) {
     console.log(err);
 }
+
+const db = mongoClient.db("nome do banco")
+
+export const NomeDaCollection = db.collection("nome da collection");
