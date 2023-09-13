@@ -11,6 +11,6 @@ try {
     console.log(err);
 }
 
-const db = mongoClient.db("nome do banco")
+const db = mongoClient.db("logs")
 
-export const NomeDaCollection = db.collection("nome da collection");
+export const logsCollection = db.collection("logsCollection");

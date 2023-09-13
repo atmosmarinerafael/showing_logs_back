@@ -3,8 +3,11 @@ import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
 
+import logsRouter from "./routers/logs.router.js"
 const app = express();
 
+app.use(express.json());
+app.use(logsRouter);
 
 const port = process.env.PORT || 5000;
 

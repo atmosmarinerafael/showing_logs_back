@@ -1,7 +1,13 @@
-import { NomeDaCollection } from "../../database/db";
+import { logsCollection } from "../../database/db.js";
 
-export async function findLogs() {
-    const logs = await NomeDaCollection.find().toArray();
+async function findLogs() {
+    const logs = await logsCollection.find().toArray();
     
     return logs;
 }
+
+const logsRepository = {
+    findLogs
+}
+
+export default logsRepository;
