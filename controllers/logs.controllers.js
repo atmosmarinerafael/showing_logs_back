@@ -6,7 +6,6 @@ export async function findLogs(req, res) {
     try {
         const logs = await logsService.getLogs();
 
-
         return res.status(httpStatus.OK).send(logs);
     } catch {
         
@@ -15,7 +14,7 @@ export async function findLogs(req, res) {
 }
 
 export async function addLog(req, res) {
-    const log = res.locals.log;
+    const log = req.body
 
     try {
         await logsService.addLog(log);
