@@ -8,9 +8,14 @@ async function getLogs() {
     return logs;
 }
 
+async function addLog( log ) {
+
+    return logsRepository.add( log );
+}
 
 const logsService = {
-    getLogs
+    getLogs,
+    addLog
 }
 
 export default logsService;

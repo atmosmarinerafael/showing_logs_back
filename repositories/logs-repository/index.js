@@ -6,8 +6,13 @@ async function findLogs() {
     return logs;
 }
 
+async function add( log ) {
+    return await logsCollection.insertOne( log );
+}
+
 const logsRepository = {
-    findLogs
+    findLogs,
+    add
 }
 
 export default logsRepository;
