@@ -2,9 +2,9 @@ import { Router } from "express";
 import { addLog, findLogs } from "../controllers/logs.controllers.js";
 
 
-const router = Router();
+const logsRouter = Router();
 
-router.get("/logs", findLogs);
-router.post("/logs", addLog);
+logsRouter.get("/logs", findLogs);
+logsRouter.post("/logs", addLog);
 
-export default router;
+export default logsRouter;
