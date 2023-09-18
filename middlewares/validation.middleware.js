@@ -1,6 +1,6 @@
 import httpStatus from "http-status";
-import { signInSchema } from "../Schemas/auth.schemas";
-import { createUserSchema } from "../Schemas/user.schemas";
+import { signInSchema } from "../Schemas/auth.schemas.js";
+import { createUserSchema } from "../Schemas/user.schemas.js";
 
 export function validateBody(req, res, next) {
     const user = req.body;

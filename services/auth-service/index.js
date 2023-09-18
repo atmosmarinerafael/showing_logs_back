@@ -1,5 +1,6 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken"
+import userRepository from "../../repositories/user-repository/index.js";
 
 async function signIn( params ) {
     const { username, password } = params;

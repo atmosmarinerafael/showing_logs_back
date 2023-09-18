@@ -1,4 +1,5 @@
 import httpStatus from "http-status";
+import authService from "../services/auth-service/index.js"
 
 export async function signInPost(req, res) {
     const { username, password } = req.body;

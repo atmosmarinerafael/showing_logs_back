@@ -1,4 +1,5 @@
 import httpStatus from "http-status";
+import userService from "../services/users-service/index.js";
 
 
 export async function signUp(req, res) {
