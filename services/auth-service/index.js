@@ -5,12 +5,13 @@ import userRepository from "../../repositories/user-repository/index.js";
 async function signIn( params ) {
     const { username, password } = params;
 
-    const user = userRepository.findByUsername(username);
+    const user = await userRepository.findByUsername(username);
+    
     if(!user) {
         throw { message: "USER NOT FOUND!" }
     }
 
-    const userId = user.idç
+    const userId = user._id
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
 
@@ -18,8 +19,11 @@ async function signIn( params ) {
 
     const token = jwt.sign({userId}, `${process.env.JWT_SECRET}`);
 
+    console.log(token);
+
     return {
-        user: exclude(user, "password"),
+        userId,
+        username: user.username,
         token,
     };
 }

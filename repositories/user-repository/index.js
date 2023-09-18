@@ -2,7 +2,8 @@ import { usersCollection } from "../../database/db.js";
 
 
 async function findByUsername ( username ) {
-    const user = await usersCollection.find({ username: username });
+
+    const user = await usersCollection.findOne({ username });
 
     return user;
 }
