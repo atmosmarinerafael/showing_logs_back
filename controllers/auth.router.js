@@ -6,8 +6,8 @@ export async function signInPost(req, res) {
     try {
         const result = authService.signIn({ username, password });
 
-        return res.status(200).send(result);
+        return res.status(httpStatus.OK).send(result);
     } catch (err) {
-        return res.sendStatus(400);
+        return res.sendStatus(httpStatus.UNAUTHORIZED);
     }
 }
