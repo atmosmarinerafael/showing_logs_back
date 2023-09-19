@@ -18,7 +18,7 @@ async function validadeUniqueUsernameOrFail( username ) {
     const userWithSameUsername = await userRepository.findByUsername(username);
 
     if(userWithSameUsername) {
-        throw { message: "There is already an use with give username" };
+        throw { message: "There is already an user with give username" };
     }
 };
 

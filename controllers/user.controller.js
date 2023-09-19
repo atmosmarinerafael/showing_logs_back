@@ -12,6 +12,10 @@ export async function signUp(req, res) {
             username: user.username,
         })
     } catch (err) {
-        
+        if(err.message === "There is already an user with give username") {
+            return res.status(httpStatus.CONFLICT).send(err.message);
+        }
+
+        return res.status(httpStatus.BAD_REQUEST).send(err);
     }
 }

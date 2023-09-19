@@ -19,7 +19,6 @@ async function signIn( params ) {
 
     const token = jwt.sign({userId}, `${process.env.JWT_SECRET}`);
 
-    console.log(token);
 
     return {
         userId,
