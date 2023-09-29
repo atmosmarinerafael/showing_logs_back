@@ -26,6 +26,20 @@ export async function findLogsByServer(req, res) {
     }
 }
 
+export async function findLogsByServerAndTask(req, res) {
+    const server = req.params.server;
+    const task = req.params.task;
+
+    try {
+        const logsByServerAndTask = await logsService.getLogsByServerAndTask(server, task);
+
+        return res.status(httpStatus.OK).send(logsByServerAndTask);
+    } catch {
+        
+        return res.sendStatus(httpStatus.NOT_FOUND);
+    }
+}
+
 export async function addLog(req, res) {
     const log = req.body
 

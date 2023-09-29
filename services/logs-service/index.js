@@ -15,6 +15,13 @@ async function getLogsByServer(server) {
     return logsByServer;
 }
 
+async function getLogsByServerAndTask(server, task) {
+
+    const logsByServerAndTask = await logsRepository.findLogsByServerAndTask(server, task);
+
+    return logsByServerAndTask;
+}
+
 async function addLog( log ) {
 
     const date = new Date();
@@ -30,6 +37,7 @@ async function addLog( log ) {
 const logsService = {
     getLogs,
     getLogsByServer,
+    getLogsByServerAndTask,
     addLog
 }
 
