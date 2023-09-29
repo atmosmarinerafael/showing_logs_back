@@ -8,6 +8,13 @@ async function getLogs() {
     return logs;
 }
 
+async function getLogsByServer(server) {
+    
+    const logsByServer = await logsRepository.findLogsByServer(server);
+
+    return logsByServer;
+}
+
 async function addLog( log ) {
 
     const date = new Date();
@@ -22,6 +29,7 @@ async function addLog( log ) {
 
 const logsService = {
     getLogs,
+    getLogsByServer,
     addLog
 }
 

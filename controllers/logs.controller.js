@@ -13,6 +13,19 @@ export async function findLogs(req, res) {
     }
 }
 
+export async function findLogsByServer(req, res) {
+    const server = req.params.server;
+
+    try {
+        const logsByServer = await logsService.getLogsByServer(server);
+
+        return res.status(httpStatus.OK).send(logsByServer);
+    } catch {
+        
+        return res.sendStatus(httpStatus.NOT_FOUND);
+    }
+}
+
 export async function addLog(req, res) {
     const log = req.body
 

@@ -6,12 +6,20 @@ async function findLogs() {
     return logs;
 }
 
+async function findLogsByServer(server) {
+    const logsByServer = await logsCollection.find({ server: server }).toArray();
+
+    return logsByServer;
+}
+
 async function add( log ) {
     return await logsCollection.insertOne( log );
 }
 
+
 const logsRepository = {
     findLogs,
+    findLogsByServer,
     add
 }
 
