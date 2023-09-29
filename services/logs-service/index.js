@@ -10,7 +10,14 @@ async function getLogs() {
 
 async function addLog( log ) {
 
-    return logsRepository.add( log );
+    const date = new Date();
+
+    const newLog = {
+        ...log,
+        createdAt: [date.toLocaleDateString(), date.toLocaleTimeString()]
+    }
+
+    return logsRepository.add( newLog );
 }
 
 const logsService = {
