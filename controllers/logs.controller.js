@@ -25,7 +25,6 @@ export async function findLogs(req, res) {
 }
 
 export async function findDates(req, res) {
-    console.log("aqui")
     try {
         
         const dates = await logsService.getDates();
