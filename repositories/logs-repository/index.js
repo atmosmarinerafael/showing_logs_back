@@ -18,6 +18,16 @@ async function findLogsByServerAndTask(server, task) {
     return logsByServerAndTask;
 }
 
+async function findLogsByServerTaskAndDate(server, task, date) {
+    const logsByServerTaskAndDate = await logsCollection.find({
+        server: server,
+        task: task,
+        createdAt: date
+        }).toArray();
+
+    return logsByServerTaskAndDate;
+}
+
 async function add( log ) {
     return await logsCollection.insertOne( log );
 }
@@ -27,6 +37,7 @@ const logsRepository = {
     findLogs,
     findLogsByServer,
     findLogsByServerAndTask,
+    findLogsByServerTaskAndDate,
     add
 }
 

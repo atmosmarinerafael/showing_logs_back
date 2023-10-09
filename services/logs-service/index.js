@@ -22,6 +22,29 @@ async function getLogsByServerAndTask(server, task) {
     return logsByServerAndTask;
 }
 
+async function getLogsByServerTaskAndDate(server, task, date) {
+
+    if(date) {
+        const splitDate = date.split("-");
+
+        const formatedDate = `${splitDate[0]}/${splitDate[1]}/${splitDate[2]}`
+
+        const logsByServerTaskAndDate = await logsRepository.findLogsByServerTaskAndDate(server, task, formatedDate);
+
+        return logsByServerTaskAndDate;
+
+    }
+    
+    const todayDate = new Date();
+    const formatedDate = todayDate.toLocaleDateString();
+
+    console.log(formatedDate);
+
+    const logsByServerTaskAndDate = await logsRepository.findLogsByServerTaskAndDate(server, task, formatedDate);
+
+    return logsByServerTaskAndDate;
+}
+
 async function addLog( log ) {
 
     const date = new Date();
@@ -38,6 +61,7 @@ const logsService = {
     getLogs,
     getLogsByServer,
     getLogsByServerAndTask,
+    getLogsByServerTaskAndDate,
     addLog
 }
 
