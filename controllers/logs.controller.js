@@ -13,11 +13,27 @@ export async function findLogs(req, res) {
             return res.status(httpStatus.OK).send(logs);
         }
 
+        return res.sendStatus(httpStatus.NOT_FOUND);
+
         // const logs = await logsService.getLogs();
 
         // return res.status(httpStatus.OK).send(logs);
     } catch {
         
+        return res.sendStatus(httpStatus.NOT_FOUND);
+    }
+}
+
+export async function findDates(req, res) {
+    console.log("aqui")
+    try {
+        
+        const dates = await logsService.getDates();
+
+        return res.status(httpStatus.OK).send(dates);
+
+    } catch {
+
         return res.sendStatus(httpStatus.NOT_FOUND);
     }
 }

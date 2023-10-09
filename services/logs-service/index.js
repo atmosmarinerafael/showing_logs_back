@@ -38,11 +38,16 @@ async function getLogsByServerTaskAndDate(server, task, date) {
     const todayDate = new Date();
     const formatedDate = todayDate.toLocaleDateString();
 
-    console.log(formatedDate);
-
     const logsByServerTaskAndDate = await logsRepository.findLogsByServerTaskAndDate(server, task, formatedDate);
 
     return logsByServerTaskAndDate;
+}
+
+async function getDates() {
+
+    const dates = await logsRepository.findDates();
+
+    return dates;
 }
 
 async function addLog( log ) {
@@ -62,6 +67,7 @@ const logsService = {
     getLogsByServer,
     getLogsByServerAndTask,
     getLogsByServerTaskAndDate,
+    getDates,
     addLog
 }
 
